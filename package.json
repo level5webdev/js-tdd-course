@@ -4,7 +4,8 @@
   "description": "Curso TDD",
   "main": "index.js",
   "scripts": {
-    "linit": "./node_modules/.bin/eslint src/*.js",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,7 +31,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-push": "lint-staged"
     }
   },
   "lint-staged": {
