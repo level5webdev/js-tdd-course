@@ -4,7 +4,7 @@
     "es6": true
   },
   "extends": ["airbnb-base", "prettier"],
-  "plugins": ["prettier",  "html"],
+  "plugins": ["prettier",  "html", "import"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"

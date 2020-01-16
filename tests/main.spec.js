@@ -1,56 +1,31 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
-const { expect } = require('chai');
+/*
+Desafio FizzBuzz
+Escreva uma lib que receba um número e:
+Se o número for divisível por 3, no lugar do número escreva 'Fizz' - X
+Se o número for divisível por 5, no lugar do número escreva 'Buzz' - X
+Se o número for divisível por 3 e 5, no lugar do número escreva 'FizzBuzz' - X
+Se não for múltiplo de nada, retorna o número
+ */
 
-describe('Main', () => {
-  let arr;
+import { expect } from 'chai';
+import FizzBuzz from '../src/main';
 
-  // roda uma vez, antes do bloco
-  before(() => {
-    // inicia uma conexao no banco
-    // cria uma conjuto de dados
-    // console.log('before');
+describe('FizzBuzz', () => {
+  it('should return `Fizz` when multiple of 3', () => {
+    expect(FizzBuzz(3)).to.be.equal('Fizz');
   });
 
-  // roda toda vez, antes de cada bloco
-  beforeEach(() => {
-    // console.log('beforeach');
-    arr = [1, 2, 3];
+  it('should return `Buzz` when multiple of 5', () => {
+    expect(FizzBuzz(5)).to.be.equal('Buzz');
   });
 
-  // roda uma vez, depois do bloco
-  after(() => {
-    // fecha conexão com banco
-    // apaga esse conjuto de dados
-    // console.log('after');
+  it('should return `FizzBuzz` when multiple of 3 and 5', () => {
+    expect(FizzBuzz(15)).to.be.equal('FizzBuzz');
   });
 
-  // roda uma vez, deois de cada bloco
-  afterEach(() => {
-    // console.log('afterEach');
-  });
-
-  // testa tipos ou se existe (smok test)
-  it('should be an array', () => {
-    expect(arr).to.be.a('array');
-  });
-
-  it('should have a siz of 4 when push another valus to th array', () => {
-    arr.push(4);
-    expect(arr).to.have.lengthOf(4);
-  });
-
-  it('should return true pop 3 when from the array', () => {
-    expect(arr.pop() === 3).to.be.true;
-  });
-
-  it('should remove the value 3 whrn pop in the array', () => {
-    arr.pop();
-    expect(arr).to.not.include(3);
-  });
-
-  it('should have a siz of 2 when pop a value from the aray', () => {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
+  it('should return `FizzBuzz` when non-multiple', () => {
+    expect(FizzBuzz(7)).to.be.equal(7);
   });
 });
